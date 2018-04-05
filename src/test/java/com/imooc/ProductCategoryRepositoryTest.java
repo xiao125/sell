@@ -31,7 +31,7 @@ public class ProductCategoryRepositoryTest {
     }
 
     @Test
-    @Transactional
+    @Transactional  //在测试事务完全回滚，测试数据不会影响数据库
     public void saveTest(){
 
         ProductCategory productCategory = new ProductCategory("男生最爱",4);

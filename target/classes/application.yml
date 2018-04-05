@@ -7,4 +7,6 @@ spring:
 
   #打印sql语句
   jpa:
-    show-sql: true 
+    show-sql: true
+server:
+  context-path: /sell
