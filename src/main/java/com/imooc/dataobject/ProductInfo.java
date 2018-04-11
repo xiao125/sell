@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
- * 商品
+ * 商品信息
  */
 @Entity
 @Data

@@ -8,5 +8,8 @@ spring:
   #打印sql语句
   jpa:
     show-sql: true
+  #json参数为null的不会返回
+  jackson:
+    default-property-inclusion: non_null
 server:
   context-path: /sell

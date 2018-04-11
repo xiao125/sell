@@ -1,4 +1,4 @@
-package com.imooc;
+package com.imooc.repository;
 
 import com.imooc.dataobject.ProductCategory;
 import com.imooc.repository.ProductCategoryRepository;
