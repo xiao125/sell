@@ -8,8 +8,13 @@ spring:
   #打印sql语句
   jpa:
     show-sql: true
-  #返回json数据为null的不显示
+  #json参数为null的不会返回
   jackson:
     default-property-inclusion: non_null
 server:
   context-path: /sell
+
+#微信公众测试号
+wechat:
+   mpAppId: wxbba1b1cf9e21e791
+   mpAppSecret: e1051ca60444bc69c4a6323f16886ea9
