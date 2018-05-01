@@ -11,6 +11,9 @@ spring:
   #json参数为null的不会返回
   jackson:
     default-property-inclusion: non_null
+  redis:
+      host: 192.168.30.113
+      port: 6379
 server:
   context-path: /sell
 
@@ -23,3 +26,10 @@ wechat:
    mchKey: xxxxxxxxx
    keyPath: /var/weixin_cert/h5.p12
    notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+   templateId:
+     orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+
+projectUrl:
+  wechatMpAuthorize: http://xixi.nat100.top
+  wechatOpenAuthorize: http://xixi.nat100.top
+  sell: http://xixi.nat100.top
