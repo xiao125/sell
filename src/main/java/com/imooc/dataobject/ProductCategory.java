@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 /**
- * 类目
+ * 商品类目
  */
 
 @Entity

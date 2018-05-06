@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 订单总信息
+ */
+
 @Entity
 @Data
 @DynamicUpdate

@@ -36,13 +36,13 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Autowired
-    private ProductService productService;
+    private ProductService productService; //商品信息
 
     @Autowired
-    private OrderDetailRepository orderDetailRepository;
+    private OrderDetailRepository orderDetailRepository; //订单中的商品信息
 
     @Autowired
-    private OrderMasterRepository orderMasterRepository;
+    private OrderMasterRepository orderMasterRepository; //订单总信息
 
     @Autowired
     private PayService payService;
@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO create(OrderDTO orderDTO) {
         //设置下订单id(是个随机，这里调用了根据时间产生6位随机数的方法)
         String orderId = KeyUtil.genUniqueKey();
-        //给总价赋值
+        //给总价赋值 （BigInteger.ZERO 为小数的保留模式，与0比较）
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
 
         //1.查询商品（数量，价格）
@@ -116,7 +116,7 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 
-        //根据订单id查询出商品列表
+        //根据订单id查询出商品信息列表
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
 
         if (CollectionUtils.isEmpty(orderDetailList)){ //订单详情不存在

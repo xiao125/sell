@@ -61,14 +61,14 @@ public class OrderDTO {
     List<OrderDetail> orderDetailList;
 
     @JsonIgnore // json数据时不显示此参数
-    public OrderStatusEnum getOrderStatusEnum(){
+    public OrderStatusEnum getOrderStatusEnum(){ //获取订单状态code
 
         return EnumUtil.getByCode(orderStatus,OrderStatusEnum.class);
     }
 
 
     @JsonIgnore
-    public PayStatusEnum getPayStatusEnum(){
+    public PayStatusEnum getPayStatusEnum(){ //获取支付状态code
 
         return EnumUtil.getByCode(payStatus,PayStatusEnum.class);
 

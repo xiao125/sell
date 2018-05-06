@@ -3,13 +3,13 @@ package com.imooc.service;
 import com.imooc.dataobject.SellerInfo;
 
 /**
- * 卖家端
+ * 卖家端 ，登录service
  */
 public interface SellerService {
 
 
     /**
-     * 通过openid查询卖家端信息
+     * 通过openid 登录
      * @param openid
      * @return
      */

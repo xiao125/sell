@@ -63,8 +63,8 @@ public class ProductInfo {
 
     private Date updateTime;
 
-    @JsonIgnore
-    public ProductStatusEnum getProductStatusEnum(){
+    @JsonIgnore //生成json时将此注解属性过滤
+    public ProductStatusEnum getProductStatusEnum(){ //获取商品状态，code值，0或1
 
         return EnumUtil.getByCode(productStatus,ProductStatusEnum.class);
     }

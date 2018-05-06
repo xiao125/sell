@@ -27,14 +27,14 @@ import java.util.concurrent.TimeUnit;
 public class SellerUserController {
 
     @Autowired
-    private SellerService sellerService;
+    private SellerService sellerService; //登录service
 
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private StringRedisTemplate redisTemplate; //redis
 
 
     @Autowired
-    private ProjectUrlConfig projectUrlConfig;
+    private ProjectUrlConfig projectUrlConfig; //域名地址配置
 
 
     @GetMapping("/login")

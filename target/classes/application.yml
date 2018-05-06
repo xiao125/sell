@@ -1,25 +1,7 @@
+#配置不同运行环境（测试与正式）
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
+  profiles:
+    active: dev
 
-  #打印sql语句
-  jpa:
-    show-sql: true
-  #json参数为null的不会返回
-  jackson:
-    default-property-inclusion: non_null
-server:
-  context-path: /sell
 
-#微信公众测试号(appId,AppSecret)
-#微信支付参数（mchId，mchKey，keyPath，notifyUrl）
-wechat:
-   mpAppId: wxbba1b1cf9e21e791
-   mpAppSecret: e1051ca60444bc69c4a6323f16886ea9
-   mchId: 148xxxxxxxx
-   mchKey: xxxxxxxxx
-   keyPath: /var/weixin_cert/h5.p12
-   notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+

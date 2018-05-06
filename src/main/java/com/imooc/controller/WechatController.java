@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 public class WechatController {
 
     @Autowired
-    private WxMpService wxMpService;
+    private WxMpService wxMpService; //sdk
 
 
     @Autowired
@@ -38,6 +38,7 @@ public class WechatController {
 
 
     /**
+     *  微信支付 授权
      *  接口请求地址：xixi.nat100.top/sell/wechat/authorize?returnUrl=xixi.nat100.top
      *  此接口重定向微信授权接口url：https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
      *
@@ -50,7 +51,7 @@ public class WechatController {
 
         //1.配置
         //2.调用方法
-        String url ="http://xixi.nat100.top/sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatOpenAuthorize()+"/sell/wechat/userInfo";
         //这个redirectUrl是微信授权拼接地址
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
 
@@ -74,13 +75,13 @@ public class WechatController {
 
         try{
 
-            wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
+            wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code); //获取微信授权成功返回的code
         }catch (WxErrorException e){
             log.error("【微信网页授权】{}",e);
             throw new SellException(ResultEnum.WECHAT_MP_ERROR.getCode(),e.getError().getErrorMsg());
         }
 
-        String openId = wxMpOAuth2AccessToken.getOpenId();
+        String openId = wxMpOAuth2AccessToken.getOpenId();//获取微信授权成功返回的openId
 
         log.error("微信授权成功重定向地址："+returnUrl+"?openid="+openId);
         //获取到微信返回的openid后,重定向到 Url地址:   www.imooc.com?openId=XXXXXXXXXXX
@@ -89,7 +90,7 @@ public class WechatController {
 
 
     /**
-     * 扫码授权
+     * 扫码授权，微信登录
      * @param returnUrl
      * @return
      */

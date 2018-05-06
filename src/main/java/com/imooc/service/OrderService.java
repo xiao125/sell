@@ -14,7 +14,7 @@ public interface OrderService {
     OrderDTO create(OrderDTO orderDTO);
 
     /**
-     * 查询单个订单
+     * 根据订单id ，查询单个订单信息
      * @param orderId
      * @return
      */
@@ -22,7 +22,7 @@ public interface OrderService {
 
 
     /**
-     * 查询订单列表
+     * 根据微信Openid 分页查询订单列表
      * @param buyerOpenid
      * @param pageable
      * @return
@@ -54,7 +54,7 @@ public interface OrderService {
     OrderDTO paid(OrderDTO orderDTO);
 
     /**
-     * 查询全部订单列表
+     * 分页查询全部订单列表
      * @param pageable
      * @return
      */

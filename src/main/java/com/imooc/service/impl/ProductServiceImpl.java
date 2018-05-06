@@ -8,6 +8,8 @@ import com.imooc.exception.SellException;
 import com.imooc.repository.ProductInfoRepository;
 import com.imooc.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,14 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+//@CacheConfig(cacheNames = "product")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
 
     @Override
+    // @Cacheable(key= "#productId")
     public ProductInfo findOne(String productId) {
         return repository.findOne(productId);
     }
@@ -37,6 +41,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+  //  @CachePut(key = "#productInfo.getProductId()")
+    /**
+     * @CachePut : 标注的方法在执行前不会去检查缓存中是否存在之前执行过的结果，而是每次都会执行该方法，
+     * 并将执行结果以键值对的形式存入指定的缓存中
+     *
+     *
+     */
     public ProductInfo save(ProductInfo productInfo) {  //添加商品
         return repository.save(productInfo);
     }
@@ -55,6 +66,7 @@ public class ProductServiceImpl implements ProductService {
 
             }
 
+            //购物车商品的数量+ 商品本身的库存
             Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
             productInfo.setProductStock(result);
             repository.save(productInfo);

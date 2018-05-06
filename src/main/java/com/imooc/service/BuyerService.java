@@ -3,7 +3,7 @@ package com.imooc.service;
 import com.imooc.dto.OrderDTO;
 
 /**
- * 买家
+ * 卖家查询
  */
 public interface BuyerService {
 

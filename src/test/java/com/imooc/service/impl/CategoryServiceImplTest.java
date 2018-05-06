@@ -46,6 +46,12 @@ public class CategoryServiceImplTest {
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(Arrays.asList(1,2,3,4));
         Assert.assertNotEquals(0,productCategoryList.size());
 
+
+        /*select productcat0_.category_id as category1_2_, productcat0_.category_name as category2_2_,
+        productcat0_.category_type as category3_2_, productcat0_.create_time as create_t4_2_,
+        productcat0_.update_time as update_t5_2_
+        from product_category productcat0_ where productcat0_.category_type in (? , ? , ? , ?)  */
+
     }
 
     @Test

@@ -7,11 +7,17 @@ import com.lly835.bestpay.model.RefundResponse;
 
 /**
  * 支付
+ *  支付sdk接口相关信息
  */
 public interface PayService {
 
+
+
+    //微信发起支付
     PayResponse create(OrderDTO orderDTO);
 
+
+    //微信异步通知
     PayResponse notify(String notifyData);
 
     //退款

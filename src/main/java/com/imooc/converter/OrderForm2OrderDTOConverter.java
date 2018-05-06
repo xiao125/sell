@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * String 转 json数据
+ *  json数据 转到Java实体
  */
 @Slf4j
 public class OrderForm2OrderDTOConverter {

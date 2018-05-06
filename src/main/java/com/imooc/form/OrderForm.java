@@ -3,6 +3,9 @@ package com.imooc.form;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * 前端（买家）下单传递的信息参数
+ */
 @Data
 public class OrderForm {
 

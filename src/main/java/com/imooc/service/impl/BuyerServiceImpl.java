@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 卖家查询
+ */
 @Service
 @Slf4j
 public class BuyerServiceImpl implements BuyerService{
@@ -17,14 +20,24 @@ public class BuyerServiceImpl implements BuyerService{
     private OrderService orderService;
 
 
-
-
+    /**
+     * 查询订单
+     * @param openid
+     * @param orderId
+     * @return
+     */
     @Override
     public OrderDTO findOrderOne(String openid, String orderId) {
         return checkOrderOwner(openid,orderId);
     }
 
 
+    /**
+     * 取消订单
+     * @param openid
+     * @param orderId
+     * @return
+     */
     @Override
     public OrderDTO cancelOrder(String openid, String orderId) {
 

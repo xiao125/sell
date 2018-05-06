@@ -2,9 +2,12 @@ package com.imooc.VO;
 
 import lombok.Data;
 
-@Data
-public class ResultVO<T> {
+import java.io.Serializable;
 
+@Data
+public class ResultVO<T> implements Serializable {
+
+    private static final long serialVersionUID = -904180148586534937L;
     /**
      * 错误码
      */

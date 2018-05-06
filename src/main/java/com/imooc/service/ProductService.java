@@ -13,6 +13,7 @@ import java.util.List;
 public interface ProductService {
 
 
+    //根据商品id查询商品
     ProductInfo findOne(String productId);
 
     /**
@@ -22,8 +23,10 @@ public interface ProductService {
      */
     List<ProductInfo> findUpAll();
 
+    //分页查询
     Page<ProductInfo> findAll(Pageable pageable);
 
+    //更新商品
     ProductInfo save(ProductInfo productInfo);
 
 

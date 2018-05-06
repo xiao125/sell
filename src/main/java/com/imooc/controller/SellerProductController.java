@@ -9,6 +9,7 @@ import com.imooc.service.ProductService;
 import com.imooc.utils.KeyUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -138,6 +139,14 @@ public class SellerProductController {
      * @return
      */
     @PostMapping("/save")
+    /**
+     *  @CacheEvict ： 指明某个方法或者某个类的所有方法触发清除缓存，注意缓存中加上allEntries=true使其立即清除所有缓存。
+     * allEntries :是boolean类型，表示是否需要清除缓存中的所有元素。默认为false，表示不需要。当指定了allEntries为true时，则方法调用后将立即清空所有缓存
+     *
+     * beforeInvocation : 为true，意思是说当执行这个方法之前执行清除缓存的操作，这样不管这个方法执行成功与否，该缓存都将不存在
+     *
+     */
+    @CacheEvict(cacheNames = "product",allEntries = true,beforeInvocation = true)
     public ModelAndView save(@Valid ProductForm form,
                              BindingResult bindingResult,
                              Map<String,Object> map){
